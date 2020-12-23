@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper {
+    height: 100vh;
+    background-image: url("../image/background.jpg");
+    background-size: cover;
+    //background: linear-gradient(217deg, rgba(261, 121, 153, 0.8), rgba(187, 1, 125, 0) 70.71%),
+    //            linear-gradient(127deg, rgba(234, 62, 13, 0.8), rgba(0, 203, 0, 0) 70.71%),
+    //            linear-gradient(336deg, rgba(0, 0, 216, 0.8), rgba(0, 0, 178, 0) 70.71%);
+    font-family: 'Roboto', sans-serif;
+}
+.weather {
+
+    width: 900px;
+    max-width: 900px;
+    background-color: rgba(174, 176, 178, .3);
+    padding: 20px;
+    border-radius: 5px;
+
+    &__location {
+        justify-content: space-between;
+        padding: 5px 0;
+
+        .location {
+            &__city {
+                font-size: 30px;
+            }
+        }
+
+        .record {
+            font-size: 18px;
+
+            &__button {
+                border: none;
+                outline: none;
+                cursor: pointer;
+                border-radius: 5px;
+                background-color: rgba(204, 204, 204, 0.47);
+                padding: 2px;
+                margin-left: 10px;
+                width: 30px;
+                height: 30px;
+                transition: all .24s ease-in-out;
+                position: relative;
+                svg {
+                    transform: inherit;
+                }
+
+                &.recording {
+                    width: 100px;
+
+                    svg {
+                        opacity: 0;
+                    }
+
+                    &:before {
+                        content: 'Listening...';
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        animation: listeningAnimation;
+                        animation-duration: 2s;
+                        animation-iteration-count: infinite;
+                        animation-fill-mode: both;
+                        animation-timing-function: ease-in-out;
+                    }
+                }
+            }
+        }
+    }
+
+    @keyframes listeningAnimation {
+        0% {
+            opacity: 100%;
+        }
+        50% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 100%;
+        }
+    }
+
+    &__info {
+        border-top: 1px solid rgba(0, 0, 0, .1);
+        border-bottom: 1px solid rgba(0, 0, 0, .1);
+        justify-content: space-around;
+        padding: 10px 0;
+        align-items: stretch;
+
+        .weather-summary {
+            flex-direction: column;
+            align-items: flex-start;
+
+            &__image {
+                width: 140px;
+                height: 130px;
+                margin: auto;
+            }
+        }
+        .weather-date {
+            flex-direction: column;
+
+            &__current {
+                justify-content: space-between;
+            }
+            &__day {
+                margin-left: 150px;
+            }
+
+            .temperature-info {
+                position: relative;
+
+                .temperature {
+                    font-size: 200px;
+                }
+
+                sup {
+                    font-size: 40px;
+                    position: absolute;
+                    top: 30px;
+                    right: -10px;
+                }
+
+                .metric {
+                    font-size: 40px;
+                    position: absolute;
+                    top: 30px;
+                    right: -40px;
+                }
+
+            }
+        }
+    }
+
+    &__details {
+        justify-content: space-around;
+        padding: 20px;
+        font-size: 20px;
+
+        .flex {
+            flex-direction: column;
+
+            span {
+                margin-top: 10px;
+            }
+        }
+
+        svg {
+            width: 40px;
+            height: 40px;
+        }
+    }
+}
