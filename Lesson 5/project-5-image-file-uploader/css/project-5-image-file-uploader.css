@@ -1,0 +1,152 @@
+body {
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    background-image: url("../image/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    padding-top: 40px;
+}
+
+.sub_title {
+    padding: 10px 0 10px 0;
+}
+
+.images {
+    display: grid;
+    grid-template-columns: repeat(4 , 2fr);
+    width: 93%;
+    grid-gap: 20px;
+    margin-top: 50px;
+}
+
+.images li {
+    list-style-type: none;
+}
+
+.image-wrapper {
+    font-size: 0;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.image-wrapper:hover .image-hover {
+    background-color: rgba(164, 176, 180, .5);
+    opacity: 1;
+}
+
+.image-hover {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    justify-content: space-evenly;
+}
+
+.image-hover svg {
+    width: 20px;
+    height: 20px;
+    opacity: 0.8;
+}
+
+.image-wrapper img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.button {
+    background-color: rgba(136, 147, 165, 0.42);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Source Code Pro', monospace;
+    outline: none;
+    padding: 5px 10px;
+    margin-top: 8px;
+    transition: all .24s ease-in-out;
+    cursor: pointer;
+}
+
+.button:hover {
+    cursor: pointer;
+    background-color: rgba(65, 65, 65, 0.42);
+    transform: scale(1.1);
+}
+
+figcaption p {
+    margin: 5px;
+}
+
+.button-image {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.image-data .button-edit svg{
+    width: 20px;
+    height: 20px;
+}
+.image-big {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.5);
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .24s ease-in-out;
+}
+
+.image-big.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.image-big__wrapper {
+    position: relative;
+}
+
+.image-big__wrapper img{
+    max-height: 700px;
+    max-width: 600px;
+    z-index: 99;
+    object-fit: contain
+}
+
+.button-close {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+}
+
+.button-close svg {
+    width: 15px;
+    height: 15px;
+}
