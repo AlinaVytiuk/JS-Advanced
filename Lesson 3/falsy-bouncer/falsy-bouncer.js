@@ -3,9 +3,7 @@
 // Hint: Try converting each value to a Boolean.
 
 function bouncer(arr) {
-    return arr.filter(function (item) {
-        return Boolean(item) === true;
-    });
+    return arr.filter(Boolean);
 }
 
 bouncer([7, "ate", "", false, 9]) /*should return [7, "ate", 9].*/

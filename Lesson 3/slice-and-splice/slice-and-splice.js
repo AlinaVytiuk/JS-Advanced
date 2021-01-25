@@ -5,13 +5,15 @@
 // after the function runs.
 
 function frankenSplice(arr1, arr2, n) {
-    var i = 0,
+    var arr1Slice = arr1.slice(),
+        arr2Slice = arr2.slice(),
+        i = 0,
         size = arr1.length;
     for (; i < size; i += 1) {
-        arr2.splice(n + i, 0, arr1[i]);
+        arr2Slice.splice(n + i, 0, arr1Slice[i]);
     }
 
-    return arr2;
+    return arr2Slice;
 }
 
 frankenSplice([1, 2, 3], [4, 5, 6], 1);
